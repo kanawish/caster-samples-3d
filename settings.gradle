@@ -1,6 +1,4 @@
 include ':commonLib'
-include ':rajaTangoLib'
-include ':tangoRoomEditor'
 include ':rajaDemo'
 include ':rajaVrDemo'
 

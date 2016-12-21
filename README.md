@@ -1,2 +1,3 @@
-# RajaDaydream
-Daydream VR project using Rajawali library. Perfect for people looking to experiment with VR in Java without the overhead of dealing directly with OpenGL.
+# Caster Samples 
+
+This repository will house all the samples I cover in my caster.io courses.
