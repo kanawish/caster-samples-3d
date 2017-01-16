@@ -39,3 +39,7 @@ captures/
 # Keystore files
 *.jks
 .idea
+
+# Workdesk/Gulp generated files
+workdesk/node_modules
+workdesk/dist

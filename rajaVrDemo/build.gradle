@@ -9,7 +9,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
-        applicationId "com.kanawish.raja.vr"
+        applicationId "com.kanawish.sample.raja.vr"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1

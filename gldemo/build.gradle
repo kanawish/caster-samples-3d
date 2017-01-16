@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        applicationId "com.kanawish.sample.gldemo"
+        minSdkVersion 24
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile project(':commonLib')
+
+    // Google Cloud
+    compile 'com.google.firebase:firebase-database:10.0.1'
+
+    // Google VR
+    compile 'com.google.vr:sdk-audio:1.10.0'
+    compile 'com.google.vr:sdk-base:1.10.0'
+    compile 'com.google.vr:sdk-common:1.10.0'
+
+    // DI stack
+    annotationProcessor "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.3" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
+    compile "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.3"
+    compile "com.github.stephanenicolas.toothpick:smoothie:1.0.3"
+
+    // Boilerplate removers
+    compile "com.jakewharton:butterknife:8.4.0" // https://github.com/JakeWharton/butterknife/blob/master/CHANGELOG.md
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.4.0"
+    provided "com.google.auto.value:auto-value:1.2" // https://github.com/google/auto
+    annotationProcessor "com.google.auto.value:auto-value:1.2"
+    annotationProcessor "com.ryanharter.auto.value:auto-value-gson:0.4.2" // https://github.com/rharter/auto-value-gson/blob/master/CHANGELOG.md
+
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    testCompile 'junit:junit:4.12'
+}
+
+// TODO: For a working firebase setup, you'll need to uncomment this and add google json config files to the project.
+// TODO: see https://firebase.google.com/docs/database/android/start/
+//apply plugin: 'com.google.gms.google-services'
