@@ -1,4 +1,6 @@
-include ':commonLib', ':glDemo'
+include ':commonLib'
+include ':glDemo'
+include ':glEpisodes'
 include ':rajaDemo'
 include ':rajaVrDemo'
 

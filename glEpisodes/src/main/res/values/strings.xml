@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">glDemo</string>
+    <string name="err_version_not_supported">Target OpenGL ES version not supported.</string>
+</resources>

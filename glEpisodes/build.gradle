@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "com.kanawish.glepisodes"
+        minSdkVersion 24
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile project(':commonLib')
+
+    // Google VR
+    compile 'com.google.vr:sdk-audio:1.10.0'
+    compile 'com.google.vr:sdk-base:1.10.0'
+    compile 'com.google.vr:sdk-common:1.10.0'
+
+    // DI stack
+    annotationProcessor "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.3" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
+    compile "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.3"
+    compile "com.github.stephanenicolas.toothpick:smoothie:1.0.3"
+
+}
+
+// TODO: For a working firebase setup, you'll need to uncomment this and add google json config files to the project.
+// TODO: see https://firebase.google.com/docs/database/android/start/
+//apply plugin: 'com.google.gms.google-services'

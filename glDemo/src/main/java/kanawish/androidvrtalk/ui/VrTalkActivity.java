@@ -11,17 +11,17 @@ import android.widget.TextView;
 
 import com.google.vr.sdk.base.GvrActivity;
 import com.google.vr.sdk.base.GvrView;
-import com.kanawish.sample.gldemo.R;
-import com.kanawish.sample.gldemo.module.ActivityModule;
-import com.kanawish.sample.gldemo.module.domain.GeoScriptEventListener;
-import com.kanawish.sample.gldemo.module.domain.ScriptManager;
-import com.kanawish.sample.gldemo.module.domain.VertexShaderEventListener;
-import com.kanawish.sample.shaderlib.domain.CameraManager;
-import com.kanawish.sample.shaderlib.domain.DebugData;
-import com.kanawish.sample.shaderlib.domain.GeometryManager;
-import com.kanawish.sample.shaderlib.domain.PipelineProgramBus;
-import com.kanawish.sample.shaderlib.gl.LiveStereoRenderer;
-import com.kanawish.sample.shaderlib.utils.IOUtils;
+import com.kanawish.glepisodes.R;
+import com.kanawish.glepisodes.module.ActivityModule;
+import com.kanawish.glepisodes.module.domain.GeoScriptEventListener;
+import com.kanawish.glepisodes.module.domain.ScriptManager;
+import com.kanawish.glepisodes.module.domain.VertexShaderEventListener;
+import com.kanawish.sample.tools.domain.CameraManager;
+import com.kanawish.sample.tools.domain.DebugData;
+import com.kanawish.sample.tools.domain.GeometryManager;
+import com.kanawish.sample.tools.domain.PipelineProgramBus;
+import com.kanawish.sample.tools.gl.LiveStereoRenderer;
+import com.kanawish.gl.utils.FileUtils;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -292,7 +292,7 @@ public class VrTalkActivity extends GvrActivity {
 
         // Load geoWrapper from local storage.
         try {
-            geoWrapper = IOUtils.loadStringFromAsset(this, "js/wrapper.js");
+            geoWrapper = FileUtils.loadStringFromAsset(this, "js/wrapper.js");
         } catch (IOException e) {
             Timber.e(e, "Failed to load 'js/wrapper.js'");
             throw new RuntimeException("Critical failure, app is missing 'wrapper.js' asset.");
