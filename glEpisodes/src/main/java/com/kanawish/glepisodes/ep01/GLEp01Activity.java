@@ -7,7 +7,10 @@ import android.opengl.Matrix;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.kanawish.functional.PlainConsumer;
+import com.kanawish.gl.utils.FpsCounter;
 import com.kanawish.gl.utils.ModelUtils;
 import com.kanawish.glepisodes.R;
 import com.kanawish.glepisodes.module.ScopeBuilder;
@@ -31,6 +34,10 @@ public class GLEp01Activity extends Activity {
     @Inject GLHelper glHelper;
 
     private GLSurfaceView glSurfaceView;
+    private TextView fpsTextView;
+    private TextView msTextView;
+
+    private FpsCounter fpsCounter = new FpsCounter(this::refreshFps);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +46,8 @@ public class GLEp01Activity extends Activity {
         Scope scope = ScopeBuilder.buildActivityScope(this);
         Toothpick.inject(this, scope);
 
-        setContentView(R.layout.activity_episodes_default);
+        setContentView(R.layout.activity_episodes_01);
+
         RelativeLayout rootLayout = (RelativeLayout) findViewById(R.id.rootLayout);
 
         // Bail if device doesn't support OpenGL ES 2.0.
@@ -50,9 +58,12 @@ public class GLEp01Activity extends Activity {
         }
 
         glSurfaceView = (GLSurfaceView) findViewById(R.id.glSurfaceView);
-        glSurfaceView.setEGLContextClientVersion(2);
 
+        glSurfaceView.setEGLContextClientVersion(2);
         glSurfaceView.setRenderer(new Ep01Renderer());
+
+        fpsTextView = (TextView) findViewById(R.id.fpsTextView);
+        msTextView = (TextView) findViewById(R.id.msTextView);
     }
 
     @Override
@@ -73,6 +84,11 @@ public class GLEp01Activity extends Activity {
         Toothpick.closeScope(this);
     }
 
+    private void refreshFps(Double msAverage) {
+        fpsTextView.setText(String.format("%4.1f fps", 1000d / msAverage));
+        msTextView.setText(String.format("%4.2f ms", msAverage));
+    }
+
     private class Ep01Renderer implements GLSurfaceView.Renderer {
 
         private static final String U_VIEW_PROJECTION_MATRIX = "u_ProjectionMatrix";
@@ -85,7 +101,7 @@ public class GLEp01Activity extends Activity {
         private int uProjectionMatrixHandle;
         private int aPositionHandle;
 
-        public Ep01Renderer() {
+        Ep01Renderer() {
             triangleVertices = ModelUtils.buildFloatBuffer(ModelUtils.TRIANGLE_VERTICES);
         }
 
@@ -126,11 +142,11 @@ public class GLEp01Activity extends Activity {
                     -1.0f, 1.0f,    // bottom, top
                     0f, 10f         // near, far
             );
-
         }
 
         @Override
         public void onDrawFrame(GL10 gl) {
+            fpsCounter.log();
 
             // We clear the screen.
             GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
@@ -145,7 +161,7 @@ public class GLEp01Activity extends Activity {
                     GLES20.GL_FLOAT,
                     false,
                     ModelUtils.COORDS_PER_VERTEX * ModelUtils.BYTES_PER_FLOAT,
-                    triangleVertices );
+                    triangleVertices);
 
             GLES20.glEnableVertexAttribArray(aPositionHandle);
 
