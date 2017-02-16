@@ -6,10 +6,10 @@ import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.kanawish.functional.PlainConsumer;
 import com.kanawish.gl.utils.FpsCounter;
 import com.kanawish.gl.utils.ModelUtils;
 import com.kanawish.glepisodes.R;
@@ -38,6 +38,7 @@ public class GLEp01Activity extends Activity {
     private TextView msTextView;
 
     private FpsCounter fpsCounter = new FpsCounter(this::refreshFps);
+    private RelativeLayout rootLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class GLEp01Activity extends Activity {
 
         setContentView(R.layout.activity_episodes_01);
 
-        RelativeLayout rootLayout = (RelativeLayout) findViewById(R.id.rootLayout);
+        rootLayout = (RelativeLayout) findViewById(R.id.rootLayout);
 
         // Bail if device doesn't support OpenGL ES 2.0.
         if (!glHelper.isEsVersionSupported(2, 0)) {
@@ -84,6 +85,20 @@ public class GLEp01Activity extends Activity {
         Toothpick.closeScope(this);
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            rootLayout.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+    }
+
     private void refreshFps(Double msAverage) {
         fpsTextView.setText(String.format("%4.1f fps", 1000d / msAverage));
         msTextView.setText(String.format("%4.2f ms", msAverage));
@@ -103,6 +118,7 @@ public class GLEp01Activity extends Activity {
 
         Ep01Renderer() {
             triangleVertices = ModelUtils.buildFloatBuffer(ModelUtils.TRIANGLE_VERTICES);
+            triangleVertices.position(0);
         }
 
         @Override
@@ -151,10 +167,7 @@ public class GLEp01Activity extends Activity {
             // We clear the screen.
             GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
 
-            // TODO: Check if we need to reset this every time?
-            // TODO: If not, we should set position only once, perhaps right after creation.
-            triangleVertices.position(0);
-
+            // Provide the vertex information to the Vertex Shader
             GLES20.glVertexAttribPointer(
                     aPositionHandle,
                     ModelUtils.COORDS_PER_VERTEX,
@@ -162,7 +175,6 @@ public class GLEp01Activity extends Activity {
                     false,
                     ModelUtils.COORDS_PER_VERTEX * ModelUtils.BYTES_PER_FLOAT,
                     triangleVertices);
-
             GLES20.glEnableVertexAttribArray(aPositionHandle);
 
             GLES20.glUniformMatrix4fv(uProjectionMatrixHandle, 1, false, projectionMatrix, 0);
