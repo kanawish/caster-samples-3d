@@ -1,0 +1,16 @@
+@startuml
+hide members
+
+package Android {
+View <|-- GLSurfaceView
+GLSurfaceView *- GLSurfaceView.Renderer
+
+show GLSurfaceView.Renderer methods
+interface GLSurfaceView.Renderer {
+  +onSurfaceCreated()
+  +onSurfaceChanged()
+  +onDrawFrame()
+}
+}
+
+@enduml

@@ -1,4 +1,4 @@
-package com.kanawish.glepisodes.ep01;
+package com.kanawish.gl;
 
 import android.content.Context;
 import android.opengl.GLES20;
