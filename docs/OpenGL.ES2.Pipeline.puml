@@ -1,0 +1,34 @@
+@startuml
+skinparam activityBorderColor #000000
+skinparam activityArrowColor #000000
+skinparam defaultFontName Menlo
+skinparam defaultFontSize 13
+
+fork
+    #BBDEFB:Vertex Data;
+    note left
+    Position, color,
+    normals, texture
+    coordinates
+    end note
+fork again
+    #BBDEFB:Uniforms;
+    note right
+    (e.g. Projection matrices)
+    end note
+end fork
+
+#FFE0B2:Vertex Shader;
+
+fork
+#E0E0E0:Primitive Assembly;
+#E0E0E0:Rasterization;
+fork again
+    #BBDEFB:Uniforms, Textures;
+end fork
+
+#FFE0B2:Fragment Shader;
+#E0E0E0:Per-Fragment Operations;
+#BBDEFB:Framebuffer;
+
+@enduml
