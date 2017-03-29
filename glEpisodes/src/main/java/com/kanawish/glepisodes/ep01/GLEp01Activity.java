@@ -10,10 +10,10 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.kanawish.gl.Program;
 import com.kanawish.gl.Shader;
 import com.kanawish.gl.utils.FpsCounter;
 import com.kanawish.gl.utils.ModelUtils;
-import com.kanawish.gl.Program;
 import com.kanawish.glepisodes.R;
 import com.kanawish.glepisodes.module.ScopeBuilder;
 import com.kanawish.glepisodes.module.app.GLHelper;

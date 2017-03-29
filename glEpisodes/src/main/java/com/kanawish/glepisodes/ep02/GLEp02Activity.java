@@ -10,11 +10,11 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.kanawish.gl.Program;
+import com.kanawish.gl.Shader;
 import com.kanawish.gl.utils.FpsCounter;
 import com.kanawish.gl.utils.ModelUtils;
 import com.kanawish.glepisodes.R;
-import com.kanawish.gl.Program;
-import com.kanawish.gl.Shader;
 import com.kanawish.glepisodes.module.ScopeBuilder;
 import com.kanawish.glepisodes.module.app.GLHelper;
 
@@ -183,9 +183,6 @@ public class GLEp02Activity extends Activity {
             GLES20.glUniformMatrix4fv(uProjectionMatrixHandle, 1, false, projectionMatrix, 0);
 
             GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 3);
-
         }
-
     }
-
 }
