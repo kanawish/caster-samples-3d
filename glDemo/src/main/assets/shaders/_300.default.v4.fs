@@ -101,7 +101,7 @@ void main() {
     }
     else
         out_color = vColor;
-        
+
     // out_color += vec4(vPosition.x,vPosition.y,0.0,0.0); 
   //out_color = vColor ; // - (rand(gl_FragCoord.xy/uResolution) * 0.10);
   // gl_FragColor.a = 1.0;
