@@ -34,10 +34,23 @@ dependencies {
     compile 'com.google.vr:sdk-base:1.10.0'
     compile 'com.google.vr:sdk-common:1.10.0'
 
-    // DI stack
-    annotationProcessor "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.3" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
-    compile "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.3"
-    compile "com.github.stephanenicolas.toothpick:smoothie:1.0.3"
+    // DI Stack
+    annotationProcessor "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.5" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
+    compile "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.5"
+    compile "com.github.stephanenicolas.toothpick:smoothie:1.0.5"
+
+    // APT/Plugin based boilerplate removal
+    compile "com.jakewharton:butterknife:8.5.1" // https://github.com/JakeWharton/butterknife/blob/master/CHANGELOG.md
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.5.1"
+
+    annotationProcessor "com.google.auto.value:auto-value:1.3"  // https://github.com/google/auto
+    annotationProcessor "com.ryanharter.auto.value:auto-value-gson:0.4.6" // https://github.com/rharter/auto-value-gson/blob/master/CHANGELOG.md
+    annotationProcessor "me.mattlogan.auto.value:auto-value-firebase:1.0.1" // https://github.com/mattlogan/auto-value-firebase/blob/master/CHANGELOG.md
+    annotationProcessor "com.gabrielittner.auto.value:auto-value-with:1.0.0" // https://github.com/gabrielittner/auto-value-with/blob/master/CHANGELOG.md
+    provided "com.google.auto.value:auto-value:1.3"
+    provided "com.ryanharter.auto.value:auto-value-gson:0.4.6"
+    provided "me.mattlogan.auto.value:auto-value-firebase-annotation:1.0.1"
+    compile "me.mattlogan.auto.value:auto-value-firebase-adapter:1.0.1"
 
 }
 
