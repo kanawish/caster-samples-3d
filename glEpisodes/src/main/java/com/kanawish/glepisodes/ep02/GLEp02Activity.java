@@ -63,7 +63,7 @@ public class GLEp02Activity extends Activity {
         glSurfaceView = (GLSurfaceView) findViewById(R.id.glSurfaceView);
 
         glSurfaceView.setEGLContextClientVersion(2);
-        glSurfaceView.setRenderer(new Ep01Renderer());
+        glSurfaceView.setRenderer(new Ep02Renderer());
 
         fpsTextView = (TextView) findViewById(R.id.fpsTextView);
         msTextView = (TextView) findViewById(R.id.msTextView);
@@ -106,7 +106,7 @@ public class GLEp02Activity extends Activity {
         msTextView.setText(String.format("%4.2f ms", msAverage));
     }
 
-    private class Ep01Renderer implements GLSurfaceView.Renderer {
+    private class Ep02Renderer implements GLSurfaceView.Renderer {
 
         private static final String U_VIEW_PROJECTION_MATRIX = "u_ProjectionMatrix";
         private static final String A_POSITION = "a_Position";
@@ -118,7 +118,7 @@ public class GLEp02Activity extends Activity {
         private int uProjectionMatrixHandle;
         private int aPositionHandle;
 
-        Ep01Renderer() {
+        Ep02Renderer() {
             triangleVertices = ModelUtils.buildFloatBuffer(ModelUtils.TRIANGLE_VERTICES);
             triangleVertices.position(0);
         }
