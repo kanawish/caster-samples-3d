@@ -60,22 +60,24 @@ public class ModelUtils {
      * @return a buffer that contains a copy of the model data.
      */
     public static FloatBuffer buildFloatBuffer( float[] modelData ) {
-        return ByteBuffer
+        return (FloatBuffer) ByteBuffer
                 .allocateDirect(modelData.length * BYTES_PER_FLOAT)
                 .order(ByteOrder.nativeOrder())
                 .asFloatBuffer()
-                .put(modelData);
+                .put(modelData)
+                .position(0);
     }
 
     /**
      * IntBuffer builder.
      */
     public static IntBuffer buildIntBuffer( int[] modelData ) {
-        return ByteBuffer
+        return (IntBuffer) ByteBuffer
                 .allocateDirect(modelData.length * BYTES_PER_INT)
                 .order(ByteOrder.nativeOrder())
                 .asIntBuffer()
-                .put(modelData);
+                .put(modelData)
+                .position(0);
     }
 
     /**

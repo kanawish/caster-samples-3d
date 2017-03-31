@@ -120,7 +120,6 @@ public class GLEp02Activity extends Activity {
 
         Ep02Renderer() {
             triangleVertices = ModelUtils.buildFloatBuffer(ModelUtils.TRIANGLE_VERTICES);
-            triangleVertices.position(0);
         }
 
         @Override
