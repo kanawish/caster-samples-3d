@@ -10,7 +10,7 @@ android {
     }
     defaultConfig {
         applicationId "com.kanawish.glepisodes"
-        minSdkVersion 24
+        minSdkVersion 22
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
