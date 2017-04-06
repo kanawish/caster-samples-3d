@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
+import java.nio.ShortBuffer;
 
 /**
  * Some hardcoded models and model generation methods.
@@ -16,15 +17,14 @@ public class ModelUtils {
     public static final int BYTES_PER_SHORT = 2;
     public static final int BYTES_PER_BYTE = 1;
 
-    // Number of coordinates per vertex.
-    public static final int COORDS_PER_VERTEX = 3;
+    // Number of coordinates values per vertex. (x,y,z)
+    public static final int VALUES_PER_COORD = 3;
+
+    // Number of values per normal
+    public static final int VALUES_PER_NORMAL = 3;
 
     // Number of colors per vertex.
-    public static final int COLOR_PER_VERTEX = 4;
-
-    // Number of combined elements, per vertex.
-    public static final int ELEMENTS_PER_VERTEX = COORDS_PER_VERTEX + COLOR_PER_VERTEX ;
-
+    public static final int VALUES_PER_COLOR = 4;
 
     // NOTE: Vertices (X,Y,Z) in counter-clockwise order.
     public static float TRIANGLE_VERTICES[] = {
@@ -81,6 +81,18 @@ public class ModelUtils {
     }
 
     /**
+     * IntBuffer builder.
+     */
+    public static ShortBuffer buildShortBuffer( short[] modelData ) {
+        return (ShortBuffer) ByteBuffer
+                .allocateDirect(modelData.length * BYTES_PER_INT)
+                .order(ByteOrder.nativeOrder())
+                .asShortBuffer()
+                .put(modelData)
+                .position(0);
+    }
+
+    /**
      * Cube builder.
      *
      * @param size The size we want our cube to be.
@@ -91,7 +103,6 @@ public class ModelUtils {
         final float halfSize = size * .5f;
 
         final float[] coordinates = {
-                // -- back
                 halfSize, halfSize, halfSize, 			-halfSize, halfSize, halfSize,
                 -halfSize, -halfSize, halfSize,			halfSize, -halfSize, halfSize,      // 0-1-2-3 front
 
@@ -132,21 +143,40 @@ public class ModelUtils {
         return new Ep02Model(
                 buildFloatBuffer(coordinates),
                 buildFloatBuffer(normals),
-                buildIntBuffer(indices));
+                buildIntBuffer(indices),
+                indices.length);
     }
 
     /**
      * A generic class to hold model data buffers.
      */
-    static class Ep02Model {
+    public static class Ep02Model {
         final FloatBuffer coordinates ;
         final FloatBuffer normals ;
         final IntBuffer indices ;
+        final int count;
 
-        public Ep02Model(FloatBuffer coordinates, FloatBuffer normals, IntBuffer indices) {
+        public Ep02Model(FloatBuffer coordinates, FloatBuffer normals, IntBuffer indices, int count) {
             this.coordinates = coordinates;
             this.normals = normals;
             this.indices = indices;
+            this.count = count;
+        }
+
+        public FloatBuffer getCoordinates() {
+            return coordinates;
+        }
+
+        public FloatBuffer getNormals() {
+            return normals;
+        }
+
+        public IntBuffer getIndices() {
+            return indices;
+        }
+
+        public int getCount() {
+            return count;
         }
     }
 

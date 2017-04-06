@@ -28,14 +28,16 @@ public class Shader {
         this.shaderSourceCode = shaderSourceCode;
     }
 
-    /**
-     *
-     * @param context
-     * @return
-     */
     public static int[] compileShadersEp01(Context context) {
         Shader vertexShader = Shader.buildVertexShader(context, "shaders/gles2.ep01.vertshader");
         Shader fragmentShader = Shader.buildFragmentShader(context, "shaders/gles2.ep01.fragshader");
+        // Compile the default shaders
+        return Shader.compileShaders(vertexShader, fragmentShader);
+    }
+
+    public static int[] compileShadersEp02(Context context) {
+        Shader vertexShader = Shader.buildVertexShader(context, "shaders/gles2.ep02.vertshader");
+        Shader fragmentShader = Shader.buildFragmentShader(context, "shaders/gles2.ep02.fragshader");
         // Compile the default shaders
         return Shader.compileShaders(vertexShader, fragmentShader);
     }

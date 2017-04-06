@@ -172,10 +172,10 @@ public class GLEp01Activity extends Activity {
             // Provide the vertex information to the Vertex Shader
             GLES20.glVertexAttribPointer(
                     aPositionHandle,
-                    ModelUtils.COORDS_PER_VERTEX,
+                    ModelUtils.VALUES_PER_COORD,
                     GLES20.GL_FLOAT,
                     false,
-                    ModelUtils.COORDS_PER_VERTEX * ModelUtils.BYTES_PER_FLOAT,
+                    ModelUtils.VALUES_PER_COORD * ModelUtils.BYTES_PER_FLOAT,
                     triangleVertices);
             GLES20.glEnableVertexAttribArray(aPositionHandle);
 
