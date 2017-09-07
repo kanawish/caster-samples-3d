@@ -144,6 +144,7 @@ public class GLEp02Activity extends Activity {
         public void onSurfaceCreated(GL10 gl, EGLConfig config) {
             Timber.i("Ep00Renderer.onSurfaceCreated()");
 
+            // OPENGL CONFIGURATION
             // Set the background clear color of your choice.
             GLES20.glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
 
@@ -154,6 +155,7 @@ public class GLEp02Activity extends Activity {
             GLES20.glEnable(GLES20.GL_DEPTH_TEST);
 
 
+            // OPENGL PROGRAM INIT
             // Load episode 02 shaders from "assets/", compile them, returns shader handlers.
             int[] shaderHandles = Shader.compileShadersEp02(GLEp02Activity.this);
 
@@ -169,19 +171,16 @@ public class GLEp02Activity extends Activity {
 
             GLES20.glUseProgram(programHandle);
 
+
+            // MODEL INIT - Set up model(s)
             // Our cube model.
             cube = ModelUtils.buildCube(1f);
-            // Light source position.
+
+            // LIGHTING INIT
             uLightPosition = new float[]{0f, 2f, -2f};
 
-            // MODEL - These calls set up the modelMatrix (our model transforms)
-            // NOTE: Operation order is important.
-            Matrix.setIdentityM(modelMatrix, 0);                // Initialize
-            Matrix.translateM(modelMatrix, 0, 0f, 0f, -3f);     // Move model in front of camera (-Z is in front of us)
-            Matrix.rotateM(modelMatrix, 0, 35f, 1f, 0f, 0f);    // Rotate model 15' on the X axis.
 
-
-            // VIEW - This call sets up the viewMatrix (our camera).
+            // VIEW MATRIX INIT - This call sets up the viewMatrix (our camera).
             Matrix.setLookAtM(
                     viewMatrix, 0,  // result array, offset
                     0f, 0f, 1.5f,   // coordinates for our 'eye'
@@ -199,7 +198,7 @@ public class GLEp02Activity extends Activity {
 
             final float ratio = (float) width / height;
 
-            // PROJECTION - This call sets up the projectionMatrix.
+            // PROJECTION MATRIX - This call sets up the projectionMatrix.
             Matrix.frustumM(
                     projectionMatrix, 0,    // target matrix, offset
                     -ratio, ratio,  // left, right
@@ -215,15 +214,11 @@ public class GLEp02Activity extends Activity {
             // Refresh our fps counter.
             fpsCounter.log();
 
-            // MODEL - Animates the model via
-            animateModel(System.currentTimeMillis() - started);
-
-
             // We clear the screen.
             GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
 
 
-            // Provide the vertex information (coordinates, normals) to the Vertex Shader
+            // MODEL - Pass the vertex information (coordinates, normals) to the Vertex Shader
             GLES20.glVertexAttribPointer(
                     aPositionHandle,
                     ModelUtils.VALUES_PER_COORD,
@@ -241,6 +236,10 @@ public class GLEp02Activity extends Activity {
                     0,
                     cube.getNormals());
             GLES20.glEnableVertexAttribArray(aNormalHandle);
+
+
+            // MODEL - Prepares the Model transformation Matrix, for the given elapsed time.
+            animateModel(System.currentTimeMillis() - started);
 
 
             // MODEL-VIEW-PROJECTION

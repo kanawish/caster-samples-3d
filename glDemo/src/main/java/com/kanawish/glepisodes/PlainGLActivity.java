@@ -5,7 +5,6 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
 import com.kanawish.gl.utils.FileUtils;
-import com.kanawish.glepisodes.module.ActivityModule;
 import com.kanawish.glepisodes.module.domain.ScriptManager;
 import com.kanawish.sample.tools.domain.CameraManager;
 import com.kanawish.sample.tools.domain.GeometryManager;

@@ -7,7 +7,6 @@ import toothpick.config.Module;
 public class DomainModule extends Module {
 
     public DomainModule() {
-        bind(ScriptManager.class).to(FileSystemManager.class);
     }
 
 }

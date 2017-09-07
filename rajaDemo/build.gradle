@@ -1,9 +1,8 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -11,7 +10,7 @@ android {
     defaultConfig {
         applicationId "com.kanawish.sample.raja"
         minSdkVersion 19
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -36,13 +35,13 @@ dependencies {
     compile project(':commonLib')
 
     // DI Stack
-    annotationProcessor "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.5" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
-    compile "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.5"
-    compile "com.github.stephanenicolas.toothpick:smoothie:1.0.5"
+    annotationProcessor "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.6" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
+    compile "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.6"
+    compile "com.github.stephanenicolas.toothpick:smoothie:1.0.6"
 
     // APT/Plugin based boilerplate removal
-    compile "com.jakewharton:butterknife:8.5.1" // https://github.com/JakeWharton/butterknife/blob/master/CHANGELOG.md
-    annotationProcessor "com.jakewharton:butterknife-compiler:8.5.1"
+    compile "com.jakewharton:butterknife:8.6.0" // https://github.com/JakeWharton/butterknife/blob/master/CHANGELOG.md
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
 
     annotationProcessor "com.google.auto.value:auto-value:1.3"  // https://github.com/google/auto
     annotationProcessor "com.ryanharter.auto.value:auto-value-gson:0.4.6" // https://github.com/rharter/auto-value-gson/blob/master/CHANGELOG.md
