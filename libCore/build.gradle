@@ -6,32 +6,30 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
-// NOTE: commonLib dependencies are for 'framework' type dependencies we always want in a project.
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.4-2"
 
     // Google Framework Dependencies
-    api "com.android.support:support-v13:26.0.1"
-    api "com.android.support:appcompat-v7:26.0.1"
-    api "com.android.support:design:26.0.1"
+    api "com.android.support:support-v13:26.0.2"
+    api "com.android.support:appcompat-v7:26.0.2"
+    api "com.android.support:design:26.0.2"
 
     // Apache
     api "org.apache.commons:commons-lang3:3.5"
@@ -53,11 +51,13 @@ dependencies {
     api 'com.jakewharton.rxrelay2:rxrelay:2.0.0' // https://github.com/JakeWharton/RxRelay/blob/master/CHANGELOG.md
 
     // Square Networking
-    compile "com.squareup.okhttp3:okhttp:3.8.1" // https://github.com/square/okhttp/blob/master/CHANGELOG.md
-    compile "com.squareup.okhttp3:okhttp-urlconnection:3.6.0"
-    debugCompile "com.squareup.okhttp3:logging-interceptor:3.6.0"
-    compile "com.squareup.retrofit2:retrofit:2.3.0" // https://github.com/square/retrofit/blob/master/CHANGELOG.md
-    compile "com.squareup.retrofit2:converter-gson:2.2.0"
-    compile "com.squareup.retrofit2:adapter-rxjava2:2.2.0"
+    api "com.squareup.okhttp3:okhttp:3.8.1" // https://github.com/square/okhttp/blob/master/CHANGELOG.md
+    api "com.squareup.okhttp3:okhttp-urlconnection:3.6.0"
+    debugApi "com.squareup.okhttp3:logging-interceptor:3.6.0"
+    api "com.squareup.retrofit2:retrofit:2.3.0" // https://github.com/square/retrofit/blob/master/CHANGELOG.md
+    api "com.squareup.retrofit2:converter-gson:2.2.0"
+    api "com.squareup.retrofit2:adapter-rxjava2:2.2.0"
+
+    testImplementation 'junit:junit:4.12'
 
 }

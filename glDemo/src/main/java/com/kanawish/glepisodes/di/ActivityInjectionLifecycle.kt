@@ -5,10 +5,12 @@ import android.app.Application.ActivityLifecycleCallbacks
 import android.os.Bundle
 import com.kanawish.glepisodes.di.openActivityScope
 import toothpick.Toothpick
+import javax.inject.Inject
 
 /**
  */
-class ActivityInjectionLifecycle() : ActivityLifecycleCallbacks {
+
+class ActivityInjectionLifecycle @Inject constructor() : ActivityLifecycleCallbacks {
 
     override fun onActivityCreated(activity: Activity?, bundle: Bundle?) {
         activity?.apply {

@@ -55,8 +55,6 @@ public class PlainGLActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Scope scope = ActivityModule.buildActivityScope(this);
-        Toothpick.inject(this, scope);
 
         debugGLSurfaceView = new GLSurfaceView(this);
         debugGLSurfaceView.setEGLContextClientVersion(3);

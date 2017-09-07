@@ -29,20 +29,16 @@ android {
 }
 
 dependencies {
-    implementation project(':commonLib')
+    implementation project(':libVr')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.4-2"
-
-    // Google VR
-    implementation 'com.google.vr:sdk-audio:1.10.0'
-    implementation 'com.google.vr:sdk-base:1.10.0'
-    implementation 'com.google.vr:sdk-common:1.10.0'
 
     // DI Stack
     kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.6" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
     implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.6"
     implementation "com.github.stephanenicolas.toothpick:smoothie:1.0.6"
 
+    testImplementation 'junit:junit:4.12'
 }
 
 // TODO: For a working firebase setup, you'll need to uncomment this and add google json config files to the project.

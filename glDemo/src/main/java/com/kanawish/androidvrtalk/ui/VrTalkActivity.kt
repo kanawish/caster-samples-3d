@@ -10,6 +10,7 @@ import com.kanawish.glepisodes.R
 import com.kanawish.glepisodes.module.domain.GeoScriptEventListener
 import com.kanawish.glepisodes.module.domain.ScriptManager
 import com.kanawish.glepisodes.module.domain.VertexShaderEventListener
+import com.kanawish.sample.mvi.di.ActivityModule
 import com.kanawish.sample.tools.domain.CameraManager
 import com.kanawish.sample.tools.domain.DebugData
 import com.kanawish.sample.tools.domain.GeometryManager
@@ -244,9 +245,6 @@ class VrTalkActivity : GvrActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val scope = ActivityModule.buildActivityScope(this)
-        Toothpick.inject(this, scope)
 
         setContentView(R.layout.vr_talk_ui)
 

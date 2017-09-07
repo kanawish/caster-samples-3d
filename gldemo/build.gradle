@@ -30,17 +30,11 @@ android {
 }
 
 dependencies {
-    implementation project(':commonLib')
+    implementation project(':libVr')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.4-2"
 
-    implementation 'com.android.support:appcompat-v7:26.0.1'
     implementation 'com.google.firebase:firebase-database:11.2.0'
-
-    // Google VR
-    implementation 'com.google.vr:sdk-audio:1.10.0'
-    implementation 'com.google.vr:sdk-base:1.10.0'
-    implementation 'com.google.vr:sdk-common:1.10.0'
 
     // DI stack
     kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.6" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
