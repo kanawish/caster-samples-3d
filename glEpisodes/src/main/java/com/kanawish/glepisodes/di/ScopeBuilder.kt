@@ -2,8 +2,8 @@ package com.kanawish.glepisodes.di
 
 import android.app.Activity
 import android.app.Application
-import com.kanawish.sample.mvi.di.ActivityModule
 import com.kanawish.di.ActivitySingleton
+
 import toothpick.Scope
 import toothpick.Toothpick
 import toothpick.smoothie.module.SmoothieActivityModule

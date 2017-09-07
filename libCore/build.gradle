@@ -12,6 +12,8 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -57,6 +59,11 @@ dependencies {
     api "com.squareup.retrofit2:retrofit:2.3.0" // https://github.com/square/retrofit/blob/master/CHANGELOG.md
     api "com.squareup.retrofit2:converter-gson:2.2.0"
     api "com.squareup.retrofit2:adapter-rxjava2:2.2.0"
+
+    // DI stack
+    kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.6" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
+    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.6"
+    implementation "com.github.stephanenicolas.toothpick:smoothie:1.0.6"
 
     testImplementation 'junit:junit:4.12'
 

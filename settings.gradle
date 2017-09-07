@@ -1,4 +1,4 @@
-include ':libVr', ':libCore'
+include ':libVr', ':libCore', ':thingMr'
 include ':glDemo'
 include ':glEpisodes'
 include ':rajaDemo'

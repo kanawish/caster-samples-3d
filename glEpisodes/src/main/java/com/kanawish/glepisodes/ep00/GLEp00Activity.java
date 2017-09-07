@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.kanawish.glepisodes.R;
 import com.kanawish.glepisodes.module.ScopeBuilder;
-import com.kanawish.glepisodes.module.app.GLHelper;
+import com.kanawish.glepisodes.tools.GLHelper;
 
 import javax.inject.Inject;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -41,7 +41,7 @@ public class GLEp00Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Scope scope = ScopeBuilder.buildActivityScope(this);
+        Scope scope = ScopeBuilder.INSTANCE.buildActivityScope(this);
         Toothpick.inject(this, scope);
 
         setContentView(R.layout.activity_episodes_00);

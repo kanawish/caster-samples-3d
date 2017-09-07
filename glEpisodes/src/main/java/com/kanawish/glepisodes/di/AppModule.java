@@ -1,4 +1,8 @@
-package com.kanawish.glepisodes.module.app;
+package com.kanawish.glepisodes.di;
+
+import android.app.Application;
+
+import com.kanawish.glepisodes.tools.GLHelper;
 
 import toothpick.config.Module;
 
@@ -10,7 +14,7 @@ import toothpick.config.Module;
  */
 public class AppModule extends Module {
 
-    public AppModule() {
+    public AppModule(Application app) {
         bind(GLHelper.class);
         // NOTE: Add bindings as needed here.
     }

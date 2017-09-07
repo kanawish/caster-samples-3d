@@ -1,20 +1,19 @@
-package com.kanawish.sample.mvi.di
+package com.kanawish.di
 
 import android.app.Activity
 import android.app.Application.ActivityLifecycleCallbacks
 import android.os.Bundle
-import com.kanawish.glepisodes.di.openActivityScope
+import toothpick.Scope
 import toothpick.Toothpick
-import javax.inject.Inject
 
 /**
  */
 
-class ActivityInjectionLifecycle @Inject constructor() : ActivityLifecycleCallbacks {
+class ActivityInjectionLifecycle(private val scopeBuilder: (Activity) -> Scope) : ActivityLifecycleCallbacks {
 
     override fun onActivityCreated(activity: Activity?, bundle: Bundle?) {
         activity?.apply {
-            Toothpick.inject(this, openActivityScope(this))
+            Toothpick.inject(this, scopeBuilder(activity))
         }
     }
 

@@ -1,4 +1,4 @@
-package com.kanawish.glepisodes.module.app;
+package com.kanawish.glepisodes.tools;
 
 import android.app.ActivityManager;
 import android.content.pm.ConfigurationInfo;

@@ -1,4 +1,4 @@
-package com.kanawish.sample.mvi.di
+package com.kanawish.di
 
 import javax.inject.Scope
 

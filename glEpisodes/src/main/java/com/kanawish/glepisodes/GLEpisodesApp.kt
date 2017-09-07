@@ -6,23 +6,27 @@ import com.kanawish.glepisodes.di.openActivityScope
 import com.kanawish.glepisodes.di.openApplicationScope
 import timber.log.Timber
 import toothpick.Toothpick
-import javax.inject.Inject
 
 /**
+ * We setup Toothpick dependency injection and Timber simplified logging
+ * via this custom Application implementation.
  */
-class GlDemoApp : Application() {
+class GLEpisodesApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
+        // NOTE: We only want logs when running the DEBUG flavor.
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
-        } // NOTE: Only logging when running the DEBUG flavor
+        }
 
-        Timber.i("%s %d %s", BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, BuildConfig.APPLICATION_ID)
+        // Banner to help reduce mixups over what version is running, etc.
+        Timber.i("%s %s %d %s", BuildConfig.APPLICATION_ID, BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE, BuildConfig.APPLICATION_ID)
 
         // DI Root Scope init
         Toothpick.inject(this, openApplicationScope(this))
         registerActivityLifecycleCallbacks(ActivityInjectionLifecycle(::openActivityScope))
+
     }
 }

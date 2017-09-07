@@ -1,16 +1,19 @@
-package com.kanawish.glepisodes
+package com.kanawish.thingmr
 
 import android.app.Application
 import com.kanawish.di.ActivityInjectionLifecycle
-import com.kanawish.glepisodes.di.openActivityScope
-import com.kanawish.glepisodes.di.openApplicationScope
+import com.kanawish.thingmr.di.openActivityScope
+import com.kanawish.thingmr.di.openApplicationScope
+import com.kanawish.thingmr.grovepi.GrovePiManager
 import timber.log.Timber
 import toothpick.Toothpick
 import javax.inject.Inject
 
 /**
  */
-class GlDemoApp : Application() {
+class MainApp : Application() {
+
+    @Inject lateinit var grovePiManager:GrovePiManager
 
     override fun onCreate() {
         super.onCreate()
@@ -25,4 +28,5 @@ class GlDemoApp : Application() {
         Toothpick.inject(this, openApplicationScope(this))
         registerActivityLifecycleCallbacks(ActivityInjectionLifecycle(::openActivityScope))
     }
+
 }

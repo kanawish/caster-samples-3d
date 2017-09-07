@@ -3,7 +3,7 @@ package com.kanawish.glepisodes.di
 import android.app.Application
 import com.kanawish.glepisodes.module.domain.FileSystemManager
 import com.kanawish.glepisodes.module.domain.ScriptManager
-import com.kanawish.sample.mvi.di.ActivityInjectionLifecycle
+import com.kanawish.di.ActivityInjectionLifecycle
 import toothpick.config.Module
 
 class AppModule(appContext: Application) : Module() {

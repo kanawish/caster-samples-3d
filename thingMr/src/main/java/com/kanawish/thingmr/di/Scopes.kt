@@ -1,8 +1,7 @@
-package com.kanawish.glepisodes.di
+package com.kanawish.thingmr.di
 
 import android.app.Activity
 import android.app.Application
-import com.kanawish.sample.mvi.di.ActivityModule
 import com.kanawish.di.ActivitySingleton
 import toothpick.Scope
 import toothpick.Toothpick
