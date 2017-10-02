@@ -30,7 +30,7 @@ android {
 dependencies {
     api project(':libCore')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.4-2"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.50"
 
     api "com.google.vr:sdk-audio:1.80.0"
     api "com.google.vr:sdk-base:1.80.0"

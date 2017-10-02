@@ -31,9 +31,9 @@ android {
 dependencies {
     implementation project(':libVr')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.4-2"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.50"
 
-    implementation 'com.google.firebase:firebase-database:11.2.0'
+    implementation 'com.google.firebase:firebase-database:11.4.0'
 
     // DI stack
     kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.6" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
