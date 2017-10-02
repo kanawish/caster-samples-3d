@@ -1,4 +1,4 @@
-package com.kanawish.thingmr
+package com.kanawish.mr4sg.accelerometer
 
 import android.app.Activity
 import android.content.Intent
@@ -6,13 +6,13 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import android.hardware.SensorManager.DynamicSensorCallback
 import android.os.Bundle
 import timber.log.Timber
 
-class MainActivity : Activity() {
+class AccelActivity : Activity() {
     private lateinit var mSensorManager: SensorManager
-    private val mDynamicSensorCallback = object : DynamicSensorCallback() {
+
+    private val mDynamicSensorCallback = object : SensorManager.DynamicSensorCallback() {
         override fun onDynamicSensorConnected(sensor: Sensor) {
             if (sensor.type == Sensor.TYPE_ACCELEROMETER) {
                 Timber.i("Accelerometer sensor connected")

@@ -1,4 +1,4 @@
-package com.kanawish.thingmr.grovepi
+package com.kanawish.mr4sg.grovepi
 
 import com.google.android.things.pio.I2cDevice
 import com.google.android.things.pio.PeripheralManagerService

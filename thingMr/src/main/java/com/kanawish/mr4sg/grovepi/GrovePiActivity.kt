@@ -1,9 +1,7 @@
-package com.kanawish.thingmr.grovepi
+package com.kanawish.mr4sg.grovepi
 
 import android.app.Activity
 import android.os.Bundle
-import com.kanawish.thingmr.grovepi.GrovePiManager
-import com.kanawish.thingmr.grovepi.PinMode
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
