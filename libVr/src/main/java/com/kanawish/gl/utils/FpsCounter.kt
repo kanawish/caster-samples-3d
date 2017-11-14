@@ -2,6 +2,7 @@ package com.kanawish.gl.utils
 
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemClock
 
 import com.kanawish.functional.PlainConsumer
 
@@ -16,9 +17,9 @@ class FpsCounter(private val reporter: PlainConsumer<Double>) {
         if (frameCount < FRAME_SAMPLE_SIZE) {
             frameCount++
         } else {
-            report(System.nanoTime())
+            report(SystemClock.elapsedRealtimeNanos())
             frameCount = 0
-            measureStart = System.nanoTime()
+            measureStart = SystemClock.elapsedRealtimeNanos()
         }
     }
 

@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-beta6'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.50"
         classpath 'com.google.gms:google-services:3.1.0'
     }
@@ -22,6 +22,7 @@ allprojects {
 //        maven { url "https://jitpack.io" }
         jcenter()
         mavenCentral()
+        maven { url "http://dl.bintray.com/steveliles/maven" }
     }
 }
 

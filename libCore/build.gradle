@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 19
@@ -32,6 +32,11 @@ dependencies {
     api "com.android.support:support-v13:26.1.0"
     api "com.android.support:appcompat-v7:26.1.0"
     api "com.android.support:design:26.1.0"
+
+    // Google extras
+    api "com.google.firebase:firebase-core:11.4.0"
+    api "com.google.firebase:firebase-auth:11.4.0"
+    api "com.google.firebase:firebase-database:11.4.0"
 
     // Apache
     api "org.apache.commons:commons-lang3:3.5"
@@ -66,5 +71,4 @@ dependencies {
     implementation "com.github.stephanenicolas.toothpick:smoothie:1.0.6"
 
     testImplementation 'junit:junit:4.12'
-
 }

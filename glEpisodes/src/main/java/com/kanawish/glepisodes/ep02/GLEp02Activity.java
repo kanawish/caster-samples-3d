@@ -17,7 +17,6 @@ import com.kanawish.gl.utils.FpsCounter;
 import com.kanawish.gl.utils.ModelUtils;
 import com.kanawish.gl.utils.ModelUtils.Ep02Model;
 import com.kanawish.glepisodes.R;
-import com.kanawish.glepisodes.module.ScopeBuilder;
 import com.kanawish.glepisodes.tools.GLHelper;
 
 import javax.inject.Inject;
@@ -45,9 +44,6 @@ public class GLEp02Activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Scope scope = ScopeBuilder.INSTANCE.buildActivityScope(this);
-        Toothpick.inject(this, scope);
 
         setContentView(R.layout.activity_episodes_01);
 

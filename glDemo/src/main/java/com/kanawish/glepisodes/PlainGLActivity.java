@@ -69,7 +69,7 @@ public class PlainGLActivity extends Activity {
         try {
             geoWrapper = FileUtils.loadStringFromAsset(this, "js/wrapper.js");
         } catch (IOException e) {
-            Timber.e(e, "Failed to load 'js/wrapper.js'");
+            Timber.e(e, "Error to load 'js/wrapper.js'");
             throw new RuntimeException("Critical failure, app is missing 'wrapper.js' asset.");
         }
 

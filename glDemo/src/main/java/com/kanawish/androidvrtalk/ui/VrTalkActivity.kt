@@ -270,7 +270,7 @@ class VrTalkActivity : GvrActivity() {
         try {
             geoWrapper = FileUtils.loadStringFromAsset(this, "js/wrapper.js")
         } catch (e: IOException) {
-            Timber.e(e, "Failed to load 'js/wrapper.js'")
+            Timber.e(e, "Error to load 'js/wrapper.js'")
             throw RuntimeException("Critical failure, app is missing 'wrapper.js' asset.")
         }
 

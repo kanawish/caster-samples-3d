@@ -123,7 +123,7 @@ public class LiveStereoRenderer implements GvrView.StereoRenderer {
             instancedVertexShader = FileUtils.loadStringFromAsset(context, "shaders/_300.instanced.v4.vs");
             instancedFragmentShader = FileUtils.loadStringFromAsset(context, "shaders/_300.default.v4.fs");
         } catch (IOException e) {
-            Timber.e(e,"Failed to load shaders from disk.");
+            Timber.e(e,"Error to load shaders from disk.");
             throw new RuntimeException(e);
         }
 
