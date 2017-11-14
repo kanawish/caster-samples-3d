@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../proguard-rules.pro'
+        }
+    }
+}
+
+// NOTE: commonLib dependencies are for 'framework' type dependencies we always want in a project.
+dependencies {
+    api project(':libCore')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.50"
+
+    api "com.google.vr:sdk-audio:1.80.0"
+    api "com.google.vr:sdk-base:1.80.0"
+    api "com.google.vr:sdk-common:1.80.0"
+
+    testImplementation 'junit:junit:4.12'
+
+}

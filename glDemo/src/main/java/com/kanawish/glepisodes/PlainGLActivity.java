@@ -5,7 +5,6 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
 import com.kanawish.gl.utils.FileUtils;
-import com.kanawish.glepisodes.module.ActivityModule;
 import com.kanawish.glepisodes.module.domain.ScriptManager;
 import com.kanawish.sample.tools.domain.CameraManager;
 import com.kanawish.sample.tools.domain.GeometryManager;
@@ -56,8 +55,6 @@ public class PlainGLActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Scope scope = ActivityModule.buildActivityScope(this);
-        Toothpick.inject(this, scope);
 
         debugGLSurfaceView = new GLSurfaceView(this);
         debugGLSurfaceView.setEGLContextClientVersion(3);
@@ -72,7 +69,7 @@ public class PlainGLActivity extends Activity {
         try {
             geoWrapper = FileUtils.loadStringFromAsset(this, "js/wrapper.js");
         } catch (IOException e) {
-            Timber.e(e, "Failed to load 'js/wrapper.js'");
+            Timber.e(e, "Error to load 'js/wrapper.js'");
             throw new RuntimeException("Critical failure, app is missing 'wrapper.js' asset.");
         }
 

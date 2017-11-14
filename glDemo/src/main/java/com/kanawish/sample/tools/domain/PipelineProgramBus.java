@@ -12,7 +12,6 @@ import io.reactivex.subjects.Subject;
 import timber.log.Timber;
 
 /**
- * Created by ecaron on 15-10-28.
  */
 @Singleton
 public class PipelineProgramBus {

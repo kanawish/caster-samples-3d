@@ -1,0 +1,10 @@
+@startuml
+
+show GLSurfaceView.Renderer methods
+interface GLSurfaceView.Renderer {
+  +onSurfaceCreated()
+  +onSurfaceChanged()
+  +onDrawFrame()
+}
+
+@enduml

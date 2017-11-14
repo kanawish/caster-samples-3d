@@ -2,26 +2,27 @@
 
 buildscript {
     repositories {
-//        mavenLocal()
+        google()
         jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
-        classpath 'me.tatarka:gradle-retrolambda:3.5.0'
-
-        classpath 'com.google.gms:google-services:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.50"
+        classpath 'com.google.gms:google-services:3.1.0'
     }
 }
 
 allprojects {
     repositories {
+        google()
 //        mavenLocal()
-        maven { url "http://google.bintray.com/googlevr" }
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        maven { url "https://jitpack.io" }
+//        maven { url "http://google.bintray.com/googlevr" }
+//        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+//        maven { url "https://jitpack.io" }
         jcenter()
         mavenCentral()
+        maven { url "http://dl.bintray.com/steveliles/maven" }
     }
 }
 

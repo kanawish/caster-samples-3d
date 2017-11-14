@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+        applicationId "com.kanawish.mr4sg.thing"
+        minSdkVersion 24
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':libCore')
+
+    compileOnly 'com.google.android.things:androidthings:+'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.50"
+    implementation 'com.android.support:support-v4:26.1.0'
+
+    implementation 'com.google.android.things.contrib:driver-mma7660fc:0.2'
+    implementation 'com.google.android.things.contrib:driver-button:0.3'
+
+    // DI stack
+    kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.6" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
+    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.6"
+    implementation "com.github.stephanenicolas.toothpick:smoothie:1.0.6"
+
+    testImplementation 'junit:junit:4.12'
+}
+
+apply plugin: 'com.google.gms.google-services'

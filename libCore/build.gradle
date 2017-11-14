@@ -1,0 +1,74 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.50"
+
+    // Google Framework Dependencies
+    api "com.android.support:support-v13:26.1.0"
+    api "com.android.support:appcompat-v7:26.1.0"
+    api "com.android.support:design:26.1.0"
+
+    // Google extras
+    api "com.google.firebase:firebase-core:11.4.0"
+    api "com.google.firebase:firebase-auth:11.4.0"
+    api "com.google.firebase:firebase-database:11.4.0"
+
+    // Apache
+    api "org.apache.commons:commons-lang3:3.5"
+
+    // Timber Logging API: Better method signatures, easy log-level-by-flavor management, decent lint checks, etc.
+    // https://github.com/JakeWharton/timber
+    api "com.jakewharton.timber:timber:4.5.1" // https://github.com/JakeWharton/timber/blob/master/CHANGELOG.md
+
+    // UI
+    api 'com.dmitrymalkovich.android:material-design-dimens:1.4' // https://github.com/DmitryMalkovich/material-design-dimens
+
+    // Data Manip
+    api "com.squareup.moshi:moshi:1.5.0"  // https://github.com/square/moshi/blob/master/CHANGELOG.md
+
+    // RxJava 2 for your declarative programming needs
+    api "io.reactivex.rxjava2:rxjava:2.1.2" // https://github.com/ReactiveX/RxJava/blob/2.x/CHANGES.md
+    api "io.reactivex.rxjava2:rxandroid:2.0.1" // https://github.com/ReactiveX/RxAndroid/blob/2.x/CHANGES.md
+    api "io.reactivex.rxjava2:rxkotlin:2.1.0" // https://github.com/ReactiveX/RxKotlin/releases
+    api 'com.jakewharton.rxrelay2:rxrelay:2.0.0' // https://github.com/JakeWharton/RxRelay/blob/master/CHANGELOG.md
+
+    // Square Networking
+    api "com.squareup.okhttp3:okhttp:3.8.1" // https://github.com/square/okhttp/blob/master/CHANGELOG.md
+    api "com.squareup.okhttp3:okhttp-urlconnection:3.6.0"
+    debugApi "com.squareup.okhttp3:logging-interceptor:3.6.0"
+    api "com.squareup.retrofit2:retrofit:2.3.0" // https://github.com/square/retrofit/blob/master/CHANGELOG.md
+    api "com.squareup.retrofit2:converter-gson:2.2.0"
+    api "com.squareup.retrofit2:adapter-rxjava2:2.2.0"
+
+    // DI stack
+    kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.6" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
+    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.6"
+    implementation "com.github.stephanenicolas.toothpick:smoothie:1.0.6"
+
+    testImplementation 'junit:junit:4.12'
+}

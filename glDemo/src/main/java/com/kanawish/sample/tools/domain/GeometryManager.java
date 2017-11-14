@@ -131,7 +131,7 @@ public class GeometryManager {
         try {
             return jsonAdapter.fromJson(result);
         } catch (IOException e) {
-            throw new RuntimeException("Failed to parse results into a GeometryData format.");
+            throw new RuntimeException("Error to parse results into a GeometryData format.");
         }
     }
 

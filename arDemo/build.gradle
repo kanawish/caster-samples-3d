@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        applicationId "com.kanawish.sample.gldemo"
+        minSdkVersion 24
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':libVr')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.50"
+
+    implementation 'com.google.firebase:firebase-database:11.4.0'
+
+    implementation "org.opencv:OpenCV-Android:3.1.0"
+
+    // DI stack
+    kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.6" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
+    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.6"
+    implementation "com.github.stephanenicolas.toothpick:smoothie:1.0.6"
+
+    testImplementation 'junit:junit:4.12'
+}
+
+// TODO: For a working firebase setup, you'll need to uncomment this and add google json config files to the project.
+// TODO: see https://firebase.google.com/docs/database/android/start/
+//apply plugin: 'com.google.gms.google-services'

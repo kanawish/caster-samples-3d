@@ -5,9 +5,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import io.reactivex.Observable;
 
 /**
- * Created by kanawish on 2017-01-03.
  */
-
 public class RxUtils {
     /**
      * For a given window size, emits the average value.

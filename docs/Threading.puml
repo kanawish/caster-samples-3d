@@ -1,0 +1,26 @@
+VANILLA THREADING / RENDER LOOP
+
+@startuml
+    control UI_Thread
+    control GL_Render_Thread
+
+    GL_Render_Thread -> Renderer: draw( )
+    activate Renderer
+    UI_Thread --> GL_Render_Thread: queueEvent(Runnable)
+    GL_Render_Thread <-- Renderer:
+    deactivate Renderer
+
+    GL_Render_Thread <-- GL_Render_Thread: runQueued()
+
+GL_Render_Thread -> Renderer: draw( )
+activate Renderer
+GL_Render_Thread <-- Renderer:
+deactivate Renderer
+
+GL_Render_Thread -> Renderer: draw( )
+activate Renderer
+GL_Render_Thread <-- Renderer:
+deactivate Renderer
+
+ ...etc......
+ @enduml

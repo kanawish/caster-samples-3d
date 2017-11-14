@@ -1,6 +1,13 @@
 <manifest package="com.kanawish.glepisodes"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Tell the system this app requires OpenGL ES 2.0. -->
+    <!--<uses-feature android:glEsVersion="0x00020000" android:required="true" />-->
+    <!-- Tell the system this app requires OpenGL ES 3.0. -->
+    <uses-feature android:glEsVersion="0x00030000" android:required="true" />
+    <!-- Tell the system this app requires OpenGL ES 3.1. -->
+    <!--<uses-feature android:glEsVersion="0x00030001" android:required="true" />-->
+
     <application
         android:name="com.kanawish.glepisodes.GlDemoApp"
         android:allowBackup="true"
@@ -18,6 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.kanawish.androidvrtalk.ui.VrTalkActivity" />
     </application>
 
 </manifest>
