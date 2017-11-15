@@ -18,7 +18,7 @@ class FpsCounter(private val reporter: PlainConsumer<Double>) {
             frameCount++
         } else {
             report(SystemClock.elapsedRealtimeNanos())
-            frameCount = 0
+            frameCount = 1
             measureStart = SystemClock.elapsedRealtimeNanos()
         }
     }
