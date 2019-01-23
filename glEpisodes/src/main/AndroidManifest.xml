@@ -21,13 +21,15 @@
             android:name=".ep00.GLEp00Activity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="true">
         </activity>
         <activity
             android:name=".ep01.GLEp01Activity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:exported="true">
         </activity>
         <activity
             android:name=".ep02.GLEp02Activity"

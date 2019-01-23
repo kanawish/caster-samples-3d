@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -26,7 +27,7 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.50"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.11"
 
     // Google Framework Dependencies
     api "com.android.support:support-v13:26.1.0"
@@ -43,7 +44,7 @@ dependencies {
 
     // Timber Logging API: Better method signatures, easy log-level-by-flavor management, decent lint checks, etc.
     // https://github.com/JakeWharton/timber
-    api "com.jakewharton.timber:timber:4.5.1" // https://github.com/JakeWharton/timber/blob/master/CHANGELOG.md
+    api "com.jakewharton.timber:timber:4.7.0" // https://github.com/JakeWharton/timber/blob/master/CHANGELOG.md
 
     // UI
     api 'com.dmitrymalkovich.android:material-design-dimens:1.4' // https://github.com/DmitryMalkovich/material-design-dimens
@@ -66,9 +67,9 @@ dependencies {
     api "com.squareup.retrofit2:adapter-rxjava2:2.2.0"
 
     // DI stack
-    kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.6" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
-    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.6"
-    implementation "com.github.stephanenicolas.toothpick:smoothie:1.0.6"
+    kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:1.1.3" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
+    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:1.1.3"
+    implementation "com.github.stephanenicolas.toothpick:smoothie:1.1.3"
 
     testImplementation 'junit:junit:4.12'
 }

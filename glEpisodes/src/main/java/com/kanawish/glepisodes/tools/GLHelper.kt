@@ -15,7 +15,7 @@ import javax.inject.Singleton
  * We use app-scoped dependency injection here, to keep things clean.
  */
 @Singleton
-class GLHelper protected constructor() {
+class GLHelper @Inject constructor() {
 
     @Inject lateinit var activityManager: ActivityManager
 

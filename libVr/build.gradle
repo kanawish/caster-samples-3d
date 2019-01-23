@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -30,7 +31,7 @@ android {
 dependencies {
     api project(':libCore')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.50"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.11"
 
     api "com.google.vr:sdk-audio:1.80.0"
     api "com.google.vr:sdk-base:1.80.0"

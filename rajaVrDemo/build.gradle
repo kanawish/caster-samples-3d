@@ -30,20 +30,11 @@ android {
 }
 
 dependencies {
-    compile project(':libVr')
-
-    // DI Stack
-    annotationProcessor "com.github.stephanenicolas.toothpick:toothpick-compiler:1.0.6" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
-    compile "com.github.stephanenicolas.toothpick:toothpick-runtime:1.0.6"
-    compile "com.github.stephanenicolas.toothpick:smoothie:1.0.6"
-
-    // APT/Plugin based boilerplate removal
-    compile "com.jakewharton:butterknife:8.6.0" // https://github.com/JakeWharton/butterknife/blob/master/CHANGELOG.md
-    annotationProcessor "com.jakewharton:butterknife-compiler:8.6.0"
+    implementation project(':libVr')
 
     // SNAPSHOT versions of Rajawali can be used in some cases
     // see https://github.com/Rajawali/Rajawali
     // and https://travis-ci.org/Rajawali/Rajawali/builds
-    compile 'org.rajawali3d:rajawali:1.1.777'
+    implementation 'org.rajawali3d:rajawali:1.1.777'
 
 }
